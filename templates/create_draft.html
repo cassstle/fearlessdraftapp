@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Created</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <h1>Draft Room Created</h1>
+    <p>Room ID: {{ room_id }}</p>
+    <h2>Join Links:</h2>
+    <ul>
+        <li><a href="{{ url_for('join_draft', room_id=room_id, role='blue') }}">Blue Team</a></li>
+        <li><a href="{{ url_for('join_draft', room_id=room_id, role='red') }}">Red Team</a></li>
+        <li><a href="{{ url_for('join_draft', room_id=room_id, role='spectator') }}">Spectator</a></li>
+    </ul>
+</body>
+</html>

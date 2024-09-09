@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Settings</title>
+    <style>
+        /* Add your styles here */
+        #games-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draft Settings</h1>
+    <form action="{{ url_for('create_draft') }}" method="post">
+        <label for="mode">Draft Mode:</label>
+        <select name="mode" id="mode" onchange="toggleGamesInput()">
+            <option value="standard">Standard</option>
+            <option value="fearless">Fearless</option>
+        </select>
+        
+        <div id="games-container">
+            <label for="games">Number of Games (Fearless mode):</label>
+            <input type="number" name="games" id="games" min="3" max="5" value="3">
+        </div>
+        
+        <label for="pick_time">Pick Time (seconds):</label>
+        <input type="number" name="pick_time" id="pick_time" min="10" max="60" value="30">
+        
+        <label for="ban_time">Ban Time (seconds):</label>
+        <input type="number" name="ban_time" id="ban_time" min="10" max="60" value="30">
+        
+        <button type="submit">Create Draft</button>
+    </form>
+
+    <script>
+        function toggleGamesInput() {
+            const mode = document.getElementById('mode').value;
+            const gamesContainer = document.getElementById('games-container');
+            gamesContainer.style.display = mode === 'fearless' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
